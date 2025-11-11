@@ -1,7 +1,11 @@
 # Generated from CircleCI.pkl. DO NOT EDIT.
 version: '2.1'
 jobs:
-  pr-approval/authenticate:
+  hold:
+    steps:
+    - run:
+        command: echo "Test"
+  foobar:
     steps:
     - checkout
     - run:
@@ -11,8 +15,11 @@ jobs:
 workflows:
   prb:
     jobs:
-    - pr-approval/authenticate:
+    - hold:
+    - foobar:
         context: pkl-pr-approval
+        requires:
+        - hold
     when:
       matches:
         value: << pipeline.git.branch >>
