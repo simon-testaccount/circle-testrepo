@@ -34,4 +34,4 @@ workflows:
           - << pipeline.git.branch >>
     jobs:
       - foobar:
-        - context: pkl-pr-approval
+          context: pkl-pr-approval
