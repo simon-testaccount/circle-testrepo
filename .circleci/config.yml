@@ -24,6 +24,9 @@ workflows:
         pattern: main
     jobs:
       - hold:
+          pre-steps:
+          - run:
+              command: echo "install custom dependency"
           type: approval
       - pr-approval/authenticate:
           context: pkl-pr-approval
