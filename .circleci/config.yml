@@ -1,7 +1,7 @@
 # Generated from CircleCI.pkl. DO NOT EDIT.
 version: '2.1'
 jobs:
-  foobar:
+  pr-approval/authenticate:
     steps:
     - checkout
     - run:
@@ -11,7 +11,7 @@ jobs:
 workflows:
   prb:
     jobs:
-    - foobar:
+    - pr-approval/authenticate:
         context: pkl-pr-approval
     when:
       matches:
