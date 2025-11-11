@@ -1,10 +1,6 @@
 # Generated from CircleCI.pkl. DO NOT EDIT.
 version: 2.1
 
-orbs:
-  gh: circleci/github-cli@2.8
-
-
 jobs:
   foobar:
     docker:
@@ -25,8 +21,6 @@ workflows:
     jobs:
       - hold:
           type: approval
-      - pr-approval/authenticate:
-          context: pkl-pr-approval
       - foobar:
           context: pkl-pr-approval
           requires:
