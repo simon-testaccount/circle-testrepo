@@ -5,6 +5,8 @@ jobs:
     steps:
     - run:
         command: echo "Test"
+    docker:
+    - image: cimg/base:current
   foobar:
     steps:
     - checkout
