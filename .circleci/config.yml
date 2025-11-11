@@ -29,6 +29,9 @@ workflows:
               command: echo "install custom dependency"
           type: approval
       - pr-approval/authenticate:
+          pre-steps:
+          - run:
+              command: echo "install custom dependency"
           context: pkl-pr-approval
       - foobar:
           context: pkl-pr-approval
