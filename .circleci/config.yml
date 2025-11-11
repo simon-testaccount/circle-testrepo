@@ -6,7 +6,7 @@ orbs:
 
 
 jobs:
-  foobar:
+  foobar/test:
     docker:
       - image: cimg/base:current
     steps:
@@ -27,7 +27,7 @@ workflows:
           type: approval
       - pr-approval/authenticate:
           context: pkl-pr-approval
-      - foobar:
+      - foobar/test:
           context: pkl-pr-approval
           requires:
             - hold
@@ -38,5 +38,5 @@ workflows:
         value: << pipeline.git.branch >>
         pattern: aamain
     jobs:
-    - foobar:
+    - foobar/test:
         context: pkl-pr-approval
