@@ -2,7 +2,7 @@
 version: 2.1
 
 orbs:
-  pr-approval: apple/pr-approval@0.1.0
+  gh: circleci/github-cli@2.8
 
 
 jobs:
@@ -40,3 +40,6 @@ workflows:
     jobs:
     - foobar:
         context: pkl-pr-approval
+        environment:
+          TEST: "Hello"
+          CIRCLE_PR_USERNAME: "Hello1"
